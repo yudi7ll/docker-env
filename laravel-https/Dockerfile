@@ -10,8 +10,8 @@ RUN php -r "if (hash_file('sha384', 'composer-setup.php') === '756890a4488ce9024
 RUN php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 RUN php -r "unlink('composer-setup.php');"
 
-# bolt.so
-COPY bolt.so /usr/local/etc/php
+# NPM
+RUN apk add npm --no-cache
 
 # configure file owner permissions
 RUN adduser -DG www-data -u 1000 yudi
