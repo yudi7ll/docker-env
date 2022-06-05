@@ -4,8 +4,11 @@ services:
     app:
         build: .
         user: "1000"
+        ports:
+            - 80:80
         volumes:
-            - .:/var/www/html
+            - .:/var/www
+            - ./public:/var/www/html
             - .user.ini:/usr/local/etc/php/conf.d/custom.php.ini:ro
         networks:
             - laravel
